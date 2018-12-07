@@ -26,6 +26,13 @@ producer.on('error', function (err) {
 app.get('/',function(req,res){
     res.json({greeting:'Kafka Producer'})
 });
+/*
+Enviar un json por post con un mensaje:
+{
+    "topic":"nombre_de_topico",
+    "message":"Mensaje"
+}
+*/
 app.post('/sendMsg',function(req,res){
     var sentMessage = JSON.stringify(req.body.message);
     payloads = [
